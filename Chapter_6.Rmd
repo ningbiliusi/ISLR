@@ -1,6 +1,6 @@
 # Chapter 6 Lab 1: Subset Selection Methods
 
-# Best Subset Selection
+## Best Subset Selection
 
 library(ISLR)
 fix(Hitters)
@@ -34,7 +34,7 @@ plot(regfit.full,scale="Cp")
 plot(regfit.full,scale="bic")
 coef(regfit.full,6)
 
-# Forward and Backward Stepwise Selection
+## Forward and Backward Stepwise Selection
 
 regfit.fwd=regsubsets(Salary~.,data=Hitters,nvmax=19,method="forward")
 summary(regfit.fwd)
@@ -44,7 +44,7 @@ coef(regfit.full,7)
 coef(regfit.fwd,7)
 coef(regfit.bwd,7)
 
-# Choosing Among Models
+## Choosing Among Models
 
 set.seed(1)
 train=sample(c(TRUE,FALSE), nrow(Hitters),rep=TRUE)
@@ -88,12 +88,12 @@ reg.best=regsubsets(Salary~.,data=Hitters, nvmax=19)
 coef(reg.best,11)
 
 
-# Chapter 6 Lab 2: Ridge Regression and the Lasso
+## Chapter 6 Lab 2: Ridge Regression and the Lasso
 
 x=model.matrix(Salary~.,Hitters)[,-1]
 y=Hitters$Salary
 
-# Ridge Regression
+## Ridge Regression
 
 library(glmnet)
 grid=10^seq(10,-2,length=100)
@@ -130,7 +130,7 @@ mean((ridge.pred-y.test)^2)
 out=glmnet(x,y,alpha=0)
 predict(out,type="coefficients",s=bestlam)[1:20,]
 
-# The Lasso
+## The Lasso
 
 lasso.mod=glmnet(x[train,],y[train],alpha=1,lambda=grid)
 plot(lasso.mod)
@@ -146,9 +146,9 @@ lasso.coef
 lasso.coef[lasso.coef!=0]
 
 
-# Chapter 6 Lab 3: PCR and PLS Regression
+## Chapter 6 Lab 3: PCR and PLS Regression
 
-# Principal Components Regression
+## Principal Components Regression
 
 library(pls)
 set.seed(2)
@@ -163,7 +163,7 @@ mean((pcr.pred-y.test)^2)
 pcr.fit=pcr(y~x,scale=TRUE,ncomp=7)
 summary(pcr.fit)
 
-# Partial Least Squares
+## Partial Least Squares
 
 set.seed(1)
 pls.fit=plsr(Salary~., data=Hitters,subset=train,scale=TRUE, validation="CV")

@@ -1,6 +1,6 @@
 # Chapter 8 Lab: Decision Trees
 
-# Fitting Classification Trees
+## Fitting Classification Trees
 
 library(tree)
 library(ISLR)
@@ -40,7 +40,7 @@ tree.pred=predict(prune.carseats,Carseats.test,type="class")
 table(tree.pred,High.test)
 (86+62)/200
 
-# Fitting Regression Trees
+## Fitting Regression Trees
 
 library(MASS)
 set.seed(1)
@@ -60,7 +60,7 @@ plot(yhat,boston.test)
 abline(0,1)
 mean((yhat-boston.test)^2)
 
-# Bagging and Random Forests
+## Bagging and Random Forests
 
 library(randomForest)
 set.seed(1)
@@ -80,7 +80,7 @@ mean((yhat.rf-boston.test)^2)
 importance(rf.boston)
 varImpPlot(rf.boston)
 
-# Boosting
+## Boosting
 
 library(gbm)
 set.seed(1)

@@ -26,9 +26,9 @@ a=c(1,2,8,-3)
 cumsum(a)
 
 
-# Chapter 10 Lab 2: Clustering
+## Chapter 10 Lab 2: Clustering
 
-# K-Means Clustering
+## K-Means Clustering
 
 set.seed(2)
 x=matrix(rnorm(50*2), ncol=2)
@@ -47,7 +47,7 @@ km.out$tot.withinss
 km.out=kmeans(x,3,nstart=20)
 km.out$tot.withinss
 
-# Hierarchical Clustering
+## Hierarchical Clustering
 
 hc.complete=hclust(dist(x), method="complete")
 hc.average=hclust(dist(x), method="average")
@@ -67,9 +67,9 @@ dd=as.dist(1-cor(t(x)))
 plot(hclust(dd, method="complete"), main="Complete Linkage with Correlation-Based Distance", xlab="", sub="")
 
 
-# Chapter 10 Lab 3: NCI60 Data Example
+## Chapter 10 Lab 3: NCI60 Data Example
 
-# The NCI60 data
+## The NCI60 data
 
 library(ISLR)
 nci.labs=NCI60$labs
@@ -78,7 +78,7 @@ dim(nci.data)
 nci.labs[1:4]
 table(nci.labs)
 
-# PCA on the NCI60 Data
+## PCA on the NCI60 Data
 
 pr.out=prcomp(nci.data, scale=TRUE)
 Cols=function(vec){
@@ -95,7 +95,7 @@ par(mfrow=c(1,2))
 plot(pve,  type="o", ylab="PVE", xlab="Principal Component", col="blue")
 plot(cumsum(pve), type="o", ylab="Cumulative PVE", xlab="Principal Component", col="brown3")
 
-# Clustering the Observations of the NCI60 Data
+## Clustering the Observations of the NCI60 Data
 
 sd.data=scale(nci.data)
 par(mfrow=c(1,3))
